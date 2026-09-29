@@ -34,7 +34,7 @@
     .subtitle {
       text-align: center;
       color: #555;
-      margin-bottom: 25px;
+      margin-bottom: 20px;
     }
 
     .links {
@@ -50,6 +50,7 @@
       color: white;
       text-decoration: none;
       border-radius: 6px;
+      font-size: 15px;
     }
 
     .button:hover {
@@ -87,29 +88,35 @@
 
 <body>
 
+  <!-- ====================================================== -->
   <!-- 1. TITLE -->
+  <!-- ====================================================== -->
 
   <h1>
     Design and Implementation of Hedge Algebra Controller using Recursive Semantic Values for Cart-pole System
   </h1>
 
   <p class="subtitle">
-    <em>Experimental demonstration of RS-HAC on the cart–pole system</em>
+    <em>
+      Experimental demonstration of RS-HAC on the cart–pole system
+    </em>
   </p>
 
 
-  <!-- 2. LINKS -->
+  <!-- ====================================================== -->
+  <!-- 2. MAIN LINKS -->
+  <!-- ====================================================== -->
 
   <div class="links">
 
     <a class="button"
-       href="https://github.com/nxtuan7289/RS-HAC_Controller"
+       href="https://github.com/nxthuan7289/RS-HAC_Controller"
        target="_blank">
       GitHub Repository
     </a>
 
     <a class="button"
-       href="https://github.com/nxtuan7289/RS-HAC_Controller/tree/main/src"
+       href="https://github.com/nxthuan7289/RS-HAC_Controller/tree/main/src"
        target="_blank">
       Source Code
     </a>
@@ -117,49 +124,56 @@
   </div>
 
 
+  <!-- ====================================================== -->
   <!-- 3. ABSTRACT -->
+  <!-- ====================================================== -->
 
   <h2>Abstract</h2>
 
   <p>
     This paper presents a Recursive Semantic Hedge Algebra Controller (RS-HAC)
-    for nonlinear system control. The proposed controller introduces two components
-    that are not part of classical hedge-algebra controllers: the Semantically
-    Quantifying Simplified Mapping (SQSM), which generates ordered semantic tables
-    for any odd label count without expert assessment of hedge effects, and the
-    Infinite-domain General Semantization/De-semantization (IGS/IGDS), which uses
-    the standard logistic map for states without known bounds.
+    for nonlinear system control. The proposed controller introduces two
+    components that are not part of classical hedge-algebra controllers:
+    the Semantically Quantifying Simplified Mapping (SQSM), which generates
+    ordered semantic tables for any odd label count without expert assessment
+    of hedge effects, and the Infinite-domain General
+    Semantization/De-semantization (IGS/IGDS), which uses the standard logistic
+    map for states without known bounds.
   </p>
 
   <p>
-    We show that the parameters of each SQSM line determine its local gain in
-    closed form, so that local exponential stability can be assigned by a linear
-    design. The RS-HAC is validated on a cart–pole system through both simulation
-    and real-time experiments implemented on a Teensy 4.1 microcontroller.
+    We show that the parameters of each SQSM line determine its local gain
+    in closed form, so that local exponential stability can be assigned by
+    a linear design. The RS-HAC is validated on a cart–pole system through
+    both simulation and real-time experiments implemented on a Teensy 4.1
+    microcontroller.
   </p>
 
   <p>
-    The proposed approach is compared with a Takagi–Sugeno Fuzzy Controller (FC)
-    and a Linear Quadratic Regulator (LQR). In simulation, RS-HAC stabilized the
-    pendulum from 10° in 2.05 s, against 5.24 s for the FC and 2.48 s for the LQR,
-    although the LQR used less control effort; in a 0.2 m cart translation its
-    overshoot was 1%, against 52% and 2%.
+    The proposed approach is compared with a Takagi–Sugeno Fuzzy Controller
+    (FC) and a Linear Quadratic Regulator (LQR). In simulation, RS-HAC
+    stabilized the pendulum from 10° in 2.05 s, against 5.24 s for the FC
+    and 2.48 s for the LQR, although the LQR used less control effort; in
+    a 0.2 m cart translation its overshoot was 1%, against 52% and 2%.
   </p>
 
   <p>
-    On a physical cart–pole, the controller was tested in swing-up and stabilization,
-    recovery from manual disturbances and cart position steps, and its control
-    routine took 1.89 µs on average per 1 ms cycle.
+    On a physical cart–pole, the controller was tested in swing-up and
+    stabilization, recovery from manual disturbances and cart position
+    steps, and its control routine took 1.89 µs on average per 1 ms cycle.
   </p>
 
 
-  <!-- 4. VIDEO -->
+  <!-- ====================================================== -->
+  <!-- 4. EXPERIMENTAL VIDEO -->
+  <!-- ====================================================== -->
 
   <h2>Experimental Video</h2>
 
   <p>
-    The following video provides supplementary demonstrations of the physical
-    cart–pole experiments.
+    The following video provides supplementary demonstrations of the
+    physical cart–pole experiments, including swing-up, stabilization,
+    disturbance recovery, and cart-position tracking.
   </p>
 
   <div class="video-container">
@@ -178,7 +192,9 @@
   </p>
 
 
+  <!-- ====================================================== -->
   <!-- 5. SOURCE CODE -->
+  <!-- ====================================================== -->
 
   <h2>Source Code</h2>
 
@@ -191,13 +207,13 @@
   <div class="links">
 
     <a class="button"
-       href="https://github.com/nxtuan7289/RS-HAC_Controller/tree/main/src"
+       href="https://github.com/nxthuan7289/RS-HAC_Controller/tree/main/src"
        target="_blank">
       View Source Code
     </a>
 
     <a class="button"
-       href="https://github.com/nxtuan7289/RS-HAC_Controller"
+       href="https://github.com/nxthuan7289/RS-HAC_Controller"
        target="_blank">
       Full Repository
     </a>
@@ -205,27 +221,49 @@
   </div>
 
 
+  <!-- ====================================================== -->
   <!-- 6. SUPPLEMENTARY MATERIAL -->
+  <!-- ====================================================== -->
 
   <h2>Supplementary Material</h2>
 
   <p>
     Supplementary material for this work includes the experimental video
-    and source code provided on this project page and in the associated
-    GitHub repository.
+    and the source code associated with the RS-HAC implementation.
+  </p>
+
+  <p>
+    Project webpage:
+    <a href="https://nxthuan7289.github.io/RS-HAC_Controller/"
+       target="_blank">
+      https://nxthuan7289.github.io/RS-HAC_Controller/
+    </a>
+  </p>
+
+  <p>
+    GitHub repository:
+    <a href="https://github.com/nxthuan7289/RS-HAC_Controller"
+       target="_blank">
+      https://github.com/nxthuan7289/RS-HAC_Controller
+    </a>
   </p>
 
 
+  <!-- ====================================================== -->
   <!-- 7. FOOTER -->
+  <!-- ====================================================== -->
 
   <footer>
 
     <p>
-      RS-HAC: Recursive Semantic Hedge Algebra Controller
+      <strong>
+        RS-HAC: Recursive Semantic Hedge Algebra Controller
+      </strong>
     </p>
 
     <p>
-      Project page for experimental validation on the cart–pole system.
+      Project page for simulation and experimental validation
+      on the cart–pole system.
     </p>
 
   </footer>
