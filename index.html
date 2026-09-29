@@ -1,68 +1,235 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
-  <title>Design and Implementation of Hedge Algebra Controller using Recursive Semantic Values for Cart-pole System</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>
+    Design and Implementation of Hedge Algebra Controller using Recursive Semantic Values for Cart-pole System
+  </title>
+
   <style>
     body {
-      font-family: Arial, sans-serif;
-      max-width: 800px;
+      font-family: Arial, Helvetica, sans-serif;
+      max-width: 900px;
       margin: 0 auto;
-      padding: 20px;
-      line-height: 1.6;
+      padding: 30px 20px;
+      line-height: 1.7;
+      color: #222;
     }
-    h1, h2 {
+
+    h1 {
       text-align: center;
+      line-height: 1.3;
+      margin-bottom: 10px;
     }
+
+    h2 {
+      margin-top: 40px;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 8px;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #555;
+      margin-bottom: 25px;
+    }
+
+    .links {
+      text-align: center;
+      margin: 25px 0;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 10px 18px;
+      margin: 5px;
+      background-color: #24292f;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+    }
+
+    .button:hover {
+      background-color: #444c56;
+    }
+
     .video-container {
-      display: flex;
-      justify-content: center;
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
       margin: 20px 0;
     }
-    iframe, video {
-      max-width: 100%;
-      height: 450px;
+
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       border: none;
     }
+
     footer {
       text-align: center;
-      margin-top: 40px;
+      margin-top: 50px;
+      padding-top: 20px;
+      border-top: 1px solid #ddd;
       font-size: 0.9em;
-      color: #555;
+      color: #666;
     }
   </style>
 </head>
-<body>
-  <h1>Design and Implementation of Hedge Algebra Controller using Recursive Semantic Values for Cart-pole System</h1>
-  <p><em>Experimental demonstration of RS-HAC on the cart–pole system</em></p>
 
-  <h2>Abstract</h2>
-  <p>
-    This paper presents a novel approach to designing a Hedge Algebra Controller
-    named Hedge Algebra Controller with Recursive Semantic Values (RS-HAC).
-    This approach incorporates several newly introduced concepts, including
-    Semantically Quantifying Simplified Mapping (SQSM) featuring a recursive algorithm,
-    Infinite General Semantization (IGS), and Infinite General De-semantization (IGDS).
-    These innovations aim to enhance the optimizability, scalability, and flexibility
-    of hedge algebra theory, allowing the design of a hedge algebra-based controller
-    to be carried out more efficiently and straightforward. An application of stabilizing
-    an inverted pendulum on a cart is conducted to illustrate the superiority of
-    the proposed approach. Comparisons are made between RS-HAC and a fuzzy
-    controller of Takagi-Sugeno type (FC), as well as a linear quadratic regulator
-    (LQR). The results indicate that the RS-HAC surpasses the FC by up to 400% in
-    control efficiency and is marginally better than the LQR regarding transient time
-    in balancing an inverted pendulum on a cart.
+<body>
+
+  <!-- 1. TITLE -->
+
+  <h1>
+    Design and Implementation of Hedge Algebra Controller using Recursive Semantic Values for Cart-pole System
+  </h1>
+
+  <p class="subtitle">
+    <em>Experimental demonstration of RS-HAC on the cart–pole system</em>
   </p>
 
-  <h2>Video Results</h2>
-  <div class="video-container">
-    <iframe src="https://drive.google.com/file/d/1WgGhv8Dc5jQvirhATlJ02ohhihOdQ6ol/preview"
-            width="720" height="480" allow="autoplay"></iframe>
+
+  <!-- 2. LINKS -->
+
+  <div class="links">
+
+    <a class="button"
+       href="https://github.com/nxtuan7289/RS-HAC_Controller"
+       target="_blank">
+      GitHub Repository
+    </a>
+
+    <a class="button"
+       href="https://github.com/nxtuan7289/RS-HAC_Controller/tree/main/src"
+       target="_blank">
+      Source Code
+    </a>
+
   </div>
 
+
+  <!-- 3. ABSTRACT -->
+
+  <h2>Abstract</h2>
+
+  <p>
+    This paper presents a Recursive Semantic Hedge Algebra Controller (RS-HAC)
+    for nonlinear system control. The proposed controller introduces two components
+    that are not part of classical hedge-algebra controllers: the Semantically
+    Quantifying Simplified Mapping (SQSM), which generates ordered semantic tables
+    for any odd label count without expert assessment of hedge effects, and the
+    Infinite-domain General Semantization/De-semantization (IGS/IGDS), which uses
+    the standard logistic map for states without known bounds.
+  </p>
+
+  <p>
+    We show that the parameters of each SQSM line determine its local gain in
+    closed form, so that local exponential stability can be assigned by a linear
+    design. The RS-HAC is validated on a cart–pole system through both simulation
+    and real-time experiments implemented on a Teensy 4.1 microcontroller.
+  </p>
+
+  <p>
+    The proposed approach is compared with a Takagi–Sugeno Fuzzy Controller (FC)
+    and a Linear Quadratic Regulator (LQR). In simulation, RS-HAC stabilized the
+    pendulum from 10° in 2.05 s, against 5.24 s for the FC and 2.48 s for the LQR,
+    although the LQR used less control effort; in a 0.2 m cart translation its
+    overshoot was 1%, against 52% and 2%.
+  </p>
+
+  <p>
+    On a physical cart–pole, the controller was tested in swing-up and stabilization,
+    recovery from manual disturbances and cart position steps, and its control
+    routine took 1.89 µs on average per 1 ms cycle.
+  </p>
+
+
+  <!-- 4. VIDEO -->
+
+  <h2>Experimental Video</h2>
+
+  <p>
+    The following video provides supplementary demonstrations of the physical
+    cart–pole experiments.
+  </p>
+
+  <div class="video-container">
+
+    <iframe
+      src="https://drive.google.com/file/d/1WgGhv8Dc5jQvirhATlJ02ohhihOdQ6ol/preview"
+      allow="autoplay"
+      allowfullscreen>
+    </iframe>
+
+  </div>
+
+  <p>
+    The video is provided as supplementary material only; all quantitative
+    results are reported in the paper.
+  </p>
+
+
+  <!-- 5. SOURCE CODE -->
+
+  <h2>Source Code</h2>
+
+  <p>
+    The source code and implementation files associated with the RS-HAC
+    controller and the cart–pole experiments are publicly available in
+    the GitHub repository.
+  </p>
+
+  <div class="links">
+
+    <a class="button"
+       href="https://github.com/nxtuan7289/RS-HAC_Controller/tree/main/src"
+       target="_blank">
+      View Source Code
+    </a>
+
+    <a class="button"
+       href="https://github.com/nxtuan7289/RS-HAC_Controller"
+       target="_blank">
+      Full Repository
+    </a>
+
+  </div>
+
+
+  <!-- 6. SUPPLEMENTARY MATERIAL -->
+
+  <h2>Supplementary Material</h2>
+
+  <p>
+    Supplementary material for this work includes the experimental video
+    and source code provided on this project page and in the associated
+    GitHub repository.
+  </p>
+
+
+  <!-- 7. FOOTER -->
+
   <footer>
-    <p>This website was created using a template inspired by the Academic Project Page Template and Nerfies.</p>
-    <p>Website is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.</p>
+
+    <p>
+      RS-HAC: Recursive Semantic Hedge Algebra Controller
+    </p>
+
+    <p>
+      Project page for experimental validation on the cart–pole system.
+    </p>
+
   </footer>
+
 </body>
+
 </html>
