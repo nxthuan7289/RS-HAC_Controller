@@ -1,0 +1,19 @@
+g1_out_of_range_quicklook   2026-09-29 14:14:06   MATLAB 9.13.0.2049777 (R2022b)
+
+rule       q0    Dt [s]   Dx_m [m]   Su [m/s]  max|u| unsat  sat [%]  success
+extrap     10     2.432      0.104      1.171          7.92      0.0        1
+extrap     20     2.742      0.185      2.826         15.18      0.0        1
+extrap     30     2.573      0.305      5.139         21.57      0.0        1
+clip       10     2.477      0.109      1.205          7.68      0.0        1
+clip       20     3.316      0.235      2.916         10.66      0.0        1
+clip       30     3.601      0.390      4.678         14.22      0.0        1
+haend      10     2.457      0.105      1.177          7.68      0.0        1
+haend      20     2.922      0.195      2.862         13.78      0.0        1
+haend      30     2.294      0.324      4.824         19.29      0.0        1
+
+published Table 4, RS-HAC (Simulink):
+Table 4    10     2.052      0.106      1.194
+Table 4    20     2.169      0.187      2.835
+Table 4    30     2.598      0.306      5.121
+
+Saved logs/g1_out_of_range_quicklook.mat

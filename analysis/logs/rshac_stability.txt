@@ -1,0 +1,31 @@
+rshac_stability   2026-09-29 13:55:06   MATLAB 9.13.0.2049777 (R2022b)
+=== Level 1: local exponential stability ===
+  K_RS  = [5.86689 9.41438 61.8554 6.77836]
+  eig   = [-1.0454-0.55316i -1.0454+0.55316i -11.216-8.9351i -11.216+8.9351i]
+  Hurwitz = 1
+
+=== Level 2: polytopic quadratic certificate ===
+  full envelope        : feasible=0  worst=+Inf  (6/48 vertices not Hurwitz)
+  uniform bisection    : rho* = 0.0200
+  coord. ascent sweep 1: [2.999 0.3081 0.02146 0.1029]
+  coord. ascent sweep 2: [2.999 0.3107 0.05491 0.1482]
+  coord. ascent sweep 3: [2.999 0.3107 0.07791 0.1482]
+
+  --- certified box (supplementary, not reported in the paper) ---
+   feasible = 1,  worst vertex eig(Av'P+PAv) = -8.9561e-03,  16 vertices
+   |x|   <= 1.2895 m
+   |xd|  <= 0.6215 m/s
+   |q|   <= 1.17 deg
+   |qd|  <= 29.6 deg/s
+   P =
+    0.2337    0.0885    0.2028    0.0261
+    0.0885    0.0889    0.1739    0.0286
+    0.2028    0.1739    0.6653    0.0792
+    0.0261    0.0286    0.0792    0.0122
+
+
+   invariant ellipsoid  c* = 5.34983e-05
+   semi-axes: 0.0204 m, 0.0583 m/s, 1.17 deg, 12.1 deg/s
+
+Saved certificate.mat
+elapsed 214.9 s

@@ -1,0 +1,42 @@
+inverse_design_examples   2026-09-29 14:05:59   MATLAB 9.13.0.2049777 (R2022b)
+
+=== Example (i): target K* = K_LQR (Eq. 25) ===
+  ch     n_old     n         K*      K_max  K*/K_max      a_u
+  x          7     7    14.1421   136.8370     0.103   0.4693
+  xd         5     5    11.8290    14.7100     0.804   0.8967
+  q          5     5    56.5879   117.6798     0.481   0.6934
+  qd         7     7     7.9833    13.2390     0.603   0.8448
+  numerical gain of the designed RS-HAC = [14.142 11.829 56.588 7.9833]   (max rel. err 1.0e-10)
+  closed-loop spectrum = [-1.743-1.545i -1.743+1.545i -7.426 -17.22]
+
+=== Example (ii): specification -> poles -> K* -> a_u ===
+  specification: Dt <= 2.00 s from q0 = 10 deg (linear model), zeta = 0.80, fast/dominant = 4, |u| <= u_max
+  smallest dominant decay on the grid: sigma = 2.10 1/s  -> poles [-2.1+1.575i -2.1-1.575i -8.4+6.3i -8.4-6.3i]
+  K* = [15.493 11.819 50.554 6.5546] ; linear model: Dt = 1.983 s, max|u| = 8.82 m/s^2
+  ch     n_old     n         K*      K_max  K*/K_max      a_u
+  x          7     7    15.4934   136.8370     0.113   0.4838
+  xd         5     5    11.8190    14.7100     0.803   0.8964
+  q          5     5    50.5543   117.6798     0.430   0.6554
+  qd         7     7     6.5546    13.2390     0.495   0.7911
+  numerical gain of the designed RS-HAC = [15.493 11.819 50.554 6.5546]   (max rel. err 1.7e-10)
+  closed-loop spectrum = [-2.1-1.575i -2.1+1.575i -8.4-6.3i -8.4+6.3i]
+
+=== nonlinear plant, controller sampled at 1 ms (ZOH), saturation |u| <= u_max ===
+  controller                      q0   Dt [s]  Dx_m [m]  Su [m/s]    max|u|  success
+  RS-HAC, Table 3                 10    2.432     0.104     1.171      7.92        1
+  RS-HAC, Table 3                 20    2.742     0.185     2.826     15.18        1
+  RS-HAC, Table 3                 30    2.573     0.305     5.139     21.57        1
+  RS-HAC, (i) K* = K_LQR          10    2.117     0.120     1.671      8.22        1
+  RS-HAC, (i) K* = K_LQR          20    2.168     0.191     3.402     15.01        1
+  RS-HAC, (i) K* = K_LQR          30    2.600     0.311     5.325     21.44        1
+  RS-HAC, (ii) specification      10    1.726     0.109     1.919      7.98        1
+  RS-HAC, (ii) specification      20    1.856     0.193     3.238     14.75        1
+  RS-HAC, (ii) specification      30    2.524     0.314     5.705     21.18        1
+  LQR, Eq. (25)                   10    2.264     0.103     0.947      9.88        1
+  LQR, Eq. (25)                   20    2.723     0.216     2.009     19.75        1
+  LQR, Eq. (25)                   30    2.916     0.353     3.286     29.63        1
+  linear K* of (ii)               10    1.991     0.093     1.023      8.82        1
+  linear K* of (ii)               20    2.374     0.196     2.168     17.65        1
+  linear K* of (ii)               30    2.549     0.322     3.560     26.47        1
+
+Saved logs/inverse_design_examples.mat

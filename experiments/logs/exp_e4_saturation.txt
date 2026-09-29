@@ -1,0 +1,301 @@
+exp_e4_saturation   2026-09-29 14:18:31   MATLAB 9.13.0.2049777 (R2022b)
+
+FC pre-check   declared input range [0.25 0.75]
+  inside the range   max|evalfis(s) - s| : swept 0.000e+00   random coupled 0.000e+00
+  outside the range  s = -0.25 / 0 / 1 / 1.25  ->  out_1 = 0.0000 0.0000 0.0000 0.0000   (undriven channels -> 0.6667)
+  -> evalfis does not clamp; available conventions are selected per experiment, see fc_law.m
+  (the per-sample warning fuzzy:general:diagEvalfis_OutOfRangeInput is left OFF for the sweeps)
+
+gain pre-check (numerical d u / d X at the origin vs ../analysis/logs/small_signal_margins.txt)
+  RS-HAC   K = [5.8669 9.4144 61.855 6.7784]               max rel. dev. 7.19e-06
+  LQR      K = [14.142 11.829 56.588 7.9833]               max rel. dev. 0.00e+00
+  FC-lin   K = [34.209 7.355 58.84 3.3097]                 max rel. dev. 1.34e-05
+  FC-fis   K = [34.209 7.355 58.84 3.3097]                 max rel. dev. 1.34e-05
+  FC-clip  K = [34.209 7.355 58.84 3.3097]                 max rel. dev. 1.34e-05
+
+semantized initial states   s_i = sigma_i(x_i0), declared table range [0.25 0.75]
+  q0 = 10 deg   s = [0.5000 0.5000 0.8016 0.5000]  <-- outside the declared range at t = 0
+  q0 = 20 deg   s = [0.5000 0.5000 0.9423 0.5000]  <-- outside the declared range at t = 0
+  q0 = 30 deg   s = [0.5000 0.5000 0.9851 0.5000]  <-- outside the declared range at t = 0
+
+horizon 10 s, dwell 1 s, T_s = 1 ms, Eq. (19) scale u_max = 29.4200 m/s^2 (FIXED)
+
+=== RS-HAC,  q0 = 10 deg ===
+      u_sat   ok   tEnter   tSettle  satFrac   max|x|        Su  note
+    0.49=0.05g    0      NaN       NaN    1.000    0.053       NaN  pole fell |q| >= 90 deg
+    0.98=0.10g    0      NaN       NaN    1.000    0.139       NaN  pole fell |q| >= 90 deg
+    1.47=0.15g    0      NaN       NaN    1.000    0.337       NaN  pole fell |q| >= 90 deg
+    2.45=0.25g    0      NaN       NaN    0.921    0.190       NaN  pole fell |q| >= 90 deg
+    4.90=0.50g    1    2.289     2.288    0.006    0.109     1.275  
+    7.35=0.75g    1    2.424     2.423    0.001    0.104     1.195  
+    9.81=1.00g    1    2.432     2.431    0.000    0.104     1.191  
+   14.71=1.50g    1    2.432     2.431    0.000    0.104     1.191  
+   19.61=2.00g    1    2.432     2.431    0.000    0.104     1.191  
+   29.42=3.00g    1    2.432     2.431    0.000    0.104     1.191  
+  bisect  3.677 = 0.375g  ok=1  
+  bisect  3.065 = 0.312g  ok=1  
+  bisect  2.758 = 0.281g  ok=1  
+  bisect  2.605 = 0.266g  ok=0  pole fell |q| >= 90 deg
+  bisect  2.682 = 0.273g  ok=1  
+  -> RS-HAC, q0=10 deg: smallest stabilizing actuator bound in (2.605, 2.682] m/s^2 = (0.266, 0.273] g
+
+=== RS-HAC,  q0 = 20 deg ===
+      u_sat   ok   tEnter   tSettle  satFrac   max|x|        Su  note
+    0.49=0.05g    0      NaN       NaN    1.000    0.028       NaN  pole fell |q| >= 90 deg
+    0.98=0.10g    0      NaN       NaN    1.000    0.064       NaN  pole fell |q| >= 90 deg
+    1.47=0.15g    0      NaN       NaN    1.000    0.109       NaN  pole fell |q| >= 90 deg
+    2.45=0.25g    0      NaN       NaN    1.000    0.262       NaN  pole fell |q| >= 90 deg
+    4.90=0.50g    0      NaN       NaN    0.907    0.418       NaN  pole fell |q| >= 90 deg
+    7.35=0.75g    1    3.159     3.158    0.023    0.241     3.023  
+    9.81=1.00g    1    2.854     2.853    0.011    0.199     2.877  
+   14.71=1.50g    1    2.720     2.719    0.000    0.185     2.822  
+   19.61=2.00g    1    2.742     2.741    0.000    0.185     2.838  
+   29.42=3.00g    1    2.742     2.741    0.000    0.185     2.838  
+  bisect  6.129 = 0.625g  ok=1  
+  bisect  5.516 = 0.562g  ok=0  track limit |x| > 0.43 m
+  bisect  5.823 = 0.594g  ok=1  
+  bisect  5.669 = 0.578g  ok=1  
+  bisect  5.593 = 0.570g  ok=1  
+  -> RS-HAC, q0=20 deg: smallest stabilizing actuator bound in (5.516, 5.593] m/s^2 = (0.562, 0.570] g
+
+=== RS-HAC,  q0 = 30 deg ===
+      u_sat   ok   tEnter   tSettle  satFrac   max|x|        Su  note
+    0.49=0.05g    0      NaN       NaN    1.000    0.018       NaN  pole fell |q| >= 90 deg
+    0.98=0.10g    0      NaN       NaN    1.000    0.040       NaN  pole fell |q| >= 90 deg
+    1.47=0.15g    0      NaN       NaN    1.000    0.064       NaN  pole fell |q| >= 90 deg
+    2.45=0.25g    0      NaN       NaN    1.000    0.128       NaN  pole fell |q| >= 90 deg
+    4.90=0.50g    0      NaN       NaN    1.000    0.430       NaN  track limit |x| > 0.43 m
+    7.35=0.75g    0      NaN       NaN    0.803    0.431       NaN  track limit |x| > 0.43 m
+    9.81=1.00g    0      NaN       NaN    0.711    0.430       NaN  track limit |x| > 0.43 m
+   14.71=1.50g    1    2.611     2.610    0.013    0.332     5.148  
+   19.61=2.00g    1    2.573     2.572    0.001    0.307     5.223  
+   29.42=3.00g    1    2.573     2.572    0.000    0.305     5.166  
+  bisect 12.258 = 1.250g  ok=1  
+  bisect 11.032 = 1.125g  ok=1  
+  bisect 10.420 = 1.063g  ok=1  
+  bisect 10.113 = 1.031g  ok=0  track limit |x| > 0.43 m
+  bisect 10.266 = 1.047g  ok=0  track limit |x| > 0.43 m
+  bisect 10.343 = 1.055g  ok=0  track limit |x| > 0.43 m
+  -> RS-HAC, q0=30 deg: smallest stabilizing actuator bound in (10.343, 10.420] m/s^2 = (1.055, 1.063] g
+
+=== LQR,  q0 = 10 deg ===
+      u_sat   ok   tEnter   tSettle  satFrac   max|x|        Su  note
+    0.49=0.05g    0      NaN       NaN    1.000    0.053       NaN  pole fell |q| >= 90 deg
+    0.98=0.10g    0      NaN       NaN    1.000    0.139       NaN  pole fell |q| >= 90 deg
+    1.47=0.15g    0      NaN       NaN    1.000    0.337       NaN  pole fell |q| >= 90 deg
+    2.45=0.25g    1    2.759     2.758    0.022    0.184     1.532  
+    4.90=0.50g    1    2.367     2.366    0.005    0.114     1.050  
+    7.35=0.75g    1    2.282     2.281    0.002    0.105     0.976  
+    9.81=1.00g    1    2.264     2.263    0.000    0.103     0.961  
+   14.71=1.50g    1    2.264     2.263    0.000    0.103     0.961  
+   19.61=2.00g    1    2.264     2.263    0.000    0.103     0.961  
+   29.42=3.00g    1    2.264     2.263    0.000    0.103     0.961  
+  bisect  1.961 = 0.200g  ok=0  pole fell |q| >= 90 deg
+  bisect  2.206 = 0.225g  ok=1  
+  bisect  2.084 = 0.212g  ok=0  track limit |x| > 0.43 m
+  bisect  2.145 = 0.219g  ok=1  
+  -> LQR, q0=10 deg: smallest stabilizing actuator bound in (2.084, 2.145] m/s^2 = (0.212, 0.219] g
+
+=== LQR,  q0 = 20 deg ===
+      u_sat   ok   tEnter   tSettle  satFrac   max|x|        Su  note
+    0.49=0.05g    0      NaN       NaN    1.000    0.028       NaN  pole fell |q| >= 90 deg
+    0.98=0.10g    0      NaN       NaN    1.000    0.064       NaN  pole fell |q| >= 90 deg
+    1.47=0.15g    0      NaN       NaN    1.000    0.109       NaN  pole fell |q| >= 90 deg
+    2.45=0.25g    0      NaN       NaN    1.000    0.262       NaN  pole fell |q| >= 90 deg
+    4.90=0.50g    1    3.075     3.074    0.023    0.398     3.278  
+    7.35=0.75g    1    2.860     2.859    0.010    0.272     2.452  
+    9.81=1.00g    1    2.785     2.784    0.006    0.240     2.213  
+   14.71=1.50g    1    2.733     2.732    0.002    0.220     2.052  
+   19.61=2.00g    1    2.723     2.722    0.000    0.216     2.018  
+   29.42=3.00g    1    2.723     2.722    0.000    0.216     2.018  
+  bisect  3.677 = 0.375g  ok=0  track limit |x| > 0.43 m
+  bisect  4.290 = 0.437g  ok=0  track limit |x| > 0.43 m
+  bisect  4.597 = 0.469g  ok=0  track limit |x| > 0.43 m
+  bisect  4.750 = 0.484g  ok=1  
+  bisect  4.673 = 0.477g  ok=0  track limit |x| > 0.43 m
+  -> LQR, q0=20 deg: smallest stabilizing actuator bound in (4.673, 4.750] m/s^2 = (0.477, 0.484] g
+
+=== LQR,  q0 = 30 deg ===
+      u_sat   ok   tEnter   tSettle  satFrac   max|x|        Su  note
+    0.49=0.05g    0      NaN       NaN    1.000    0.018       NaN  pole fell |q| >= 90 deg
+    0.98=0.10g    0      NaN       NaN    1.000    0.040       NaN  pole fell |q| >= 90 deg
+    1.47=0.15g    0      NaN       NaN    1.000    0.064       NaN  pole fell |q| >= 90 deg
+    2.45=0.25g    0      NaN       NaN    1.000    0.128       NaN  pole fell |q| >= 90 deg
+    4.90=0.50g    0      NaN       NaN    1.000    0.430       NaN  track limit |x| > 0.43 m
+    7.35=0.75g    0      NaN       NaN    0.753    0.432       NaN  track limit |x| > 0.43 m
+    9.81=1.00g    0      NaN       NaN    0.370    0.431       NaN  track limit |x| > 0.43 m
+   14.71=1.50g    1    2.972     2.971    0.007    0.395     3.638  
+   19.61=2.00g    1    2.935     2.934    0.003    0.367     3.414  
+   29.42=3.00g    1    2.916     2.915    0.000    0.353     3.298  
+  bisect 12.258 = 1.250g  ok=1  
+  bisect 11.032 = 1.125g  ok=0  track limit |x| > 0.43 m
+  bisect 11.645 = 1.188g  ok=0  track limit |x| > 0.43 m
+  bisect 11.952 = 1.219g  ok=0  track limit |x| > 0.43 m
+  bisect 12.105 = 1.234g  ok=1  
+  bisect 12.028 = 1.227g  ok=1  
+  -> LQR, q0=30 deg: smallest stabilizing actuator bound in (11.952, 12.028] m/s^2 = (1.219, 1.227] g
+
+=== FC-lin,  q0 = 10 deg ===
+      u_sat   ok   tEnter   tSettle  satFrac   max|x|        Su  note
+    0.49=0.05g    0      NaN       NaN    1.000    0.053       NaN  pole fell |q| >= 90 deg
+    0.98=0.10g    0      NaN       NaN    1.000    0.139       NaN  pole fell |q| >= 90 deg
+    1.47=0.15g    0      NaN       NaN    1.000    0.337       NaN  pole fell |q| >= 90 deg
+    2.45=0.25g    0      NaN       NaN    0.942    0.220       NaN  pole fell |q| >= 90 deg
+    4.90=0.50g    1    3.218     4.100    0.019    0.100     2.083  
+    7.35=0.75g    1    3.218     4.054    0.005    0.084     1.797  
+    9.81=1.00g    1    3.183     3.992    0.001    0.081     1.771  
+   14.71=1.50g    1    3.176     3.980    0.000    0.080     1.762  
+   19.61=2.00g    1    3.176     3.980    0.000    0.080     1.762  
+   29.42=3.00g    1    3.176     3.980    0.000    0.080     1.762  
+  bisect  3.677 = 0.375g  ok=1  
+  bisect  3.065 = 0.312g  ok=0  pole fell |q| >= 90 deg
+  bisect  3.371 = 0.344g  ok=0  track limit |x| > 0.43 m
+  bisect  3.524 = 0.359g  ok=0  pole fell |q| >= 90 deg
+  bisect  3.601 = 0.367g  ok=0  pole fell |q| >= 90 deg
+  -> FC-lin, q0=10 deg: smallest stabilizing actuator bound in (3.601, 3.677] m/s^2 = (0.367, 0.375] g
+
+=== FC-lin,  q0 = 20 deg ===
+      u_sat   ok   tEnter   tSettle  satFrac   max|x|        Su  note
+    0.49=0.05g    0      NaN       NaN    1.000    0.028       NaN  pole fell |q| >= 90 deg
+    0.98=0.10g    0      NaN       NaN    1.000    0.064       NaN  pole fell |q| >= 90 deg
+    1.47=0.15g    0      NaN       NaN    1.000    0.109       NaN  pole fell |q| >= 90 deg
+    2.45=0.25g    0      NaN       NaN    1.000    0.262       NaN  pole fell |q| >= 90 deg
+    4.90=0.50g    0      NaN       NaN    0.976    0.430       NaN  track limit |x| > 0.43 m
+    7.35=0.75g    1    5.071     5.942    0.078    0.261     8.236  
+    9.81=1.00g    1    4.353     5.204    0.024    0.204     4.533  
+   14.71=1.50g    1    4.337     5.140    0.005    0.167     3.974  
+   19.61=2.00g    1    4.285     4.284    0.003    0.159     3.883  
+   29.42=3.00g    1    3.510     4.263    0.000    0.156     3.833  
+  bisect  6.129 = 0.625g  ok=0  pole fell |q| >= 90 deg
+  bisect  6.742 = 0.688g  ok=0  track limit |x| > 0.43 m
+  bisect  7.049 = 0.719g  ok=0  track limit |x| > 0.43 m
+  bisect  7.202 = 0.734g  ok=0  pole fell |q| >= 90 deg
+  bisect  7.278 = 0.742g  ok=1  
+  -> FC-lin, q0=20 deg: smallest stabilizing actuator bound in (7.202, 7.278] m/s^2 = (0.734, 0.742] g
+
+=== FC-lin,  q0 = 30 deg ===
+      u_sat   ok   tEnter   tSettle  satFrac   max|x|        Su  note
+    0.49=0.05g    0      NaN       NaN    1.000    0.018       NaN  pole fell |q| >= 90 deg
+    0.98=0.10g    0      NaN       NaN    1.000    0.040       NaN  pole fell |q| >= 90 deg
+    1.47=0.15g    0      NaN       NaN    1.000    0.064       NaN  pole fell |q| >= 90 deg
+    2.45=0.25g    0      NaN       NaN    1.000    0.128       NaN  pole fell |q| >= 90 deg
+    4.90=0.50g    0      NaN       NaN    1.000    0.430       NaN  track limit |x| > 0.43 m
+    7.35=0.75g    0      NaN       NaN    0.953    0.430       NaN  track limit |x| > 0.43 m
+    9.81=1.00g    0      NaN       NaN    0.874    0.430       NaN  track limit |x| > 0.43 m
+   14.71=1.50g    1    5.315     6.194    0.040    0.350     9.951  
+   19.61=2.00g    1    4.329     5.224    0.021    0.303     8.831  
+   29.42=3.00g    1    4.319     5.200    0.006    0.270     8.415  
+  bisect 12.258 = 1.250g  ok=0  track limit |x| > 0.43 m
+  bisect 13.484 = 1.375g  ok=1  
+  bisect 12.871 = 1.312g  ok=1  
+  bisect 12.565 = 1.281g  ok=0  track limit |x| > 0.43 m
+  bisect 12.718 = 1.297g  ok=0  track limit |x| > 0.43 m
+  bisect 12.795 = 1.305g  ok=0  track limit |x| > 0.43 m
+  -> FC-lin, q0=30 deg: smallest stabilizing actuator bound in (12.795, 12.871] m/s^2 = (1.305, 1.312] g
+
+=== FC-fis,  q0 = 10 deg ===
+      u_sat   ok   tEnter   tSettle  satFrac   max|x|        Su  note
+    0.49=0.05g    0      NaN       NaN    0.984    0.021       NaN  pole fell |q| >= 90 deg
+    0.98=0.10g    0      NaN       NaN    0.972    0.066       NaN  pole fell |q| >= 90 deg
+    1.47=0.15g    0      NaN       NaN    0.962    0.212       NaN  pole fell |q| >= 90 deg
+    2.45=0.25g    0      NaN       NaN    0.942    0.220       NaN  pole fell |q| >= 90 deg
+    4.90=0.50g    1    3.217     4.099    0.018    0.100     2.082  
+    7.35=0.75g    1    3.258     4.121    0.001    0.088     1.812  
+    9.81=1.00g    1    3.258     4.121    0.000    0.088     1.810  
+   14.71=1.50g    1    3.258     4.121    0.000    0.088     1.810  
+   19.61=2.00g    1    3.258     4.121    0.000    0.088     1.810  
+   29.42=3.00g    1    3.258     4.121    0.000    0.088     1.810  
+  bisect  3.677 = 0.375g  ok=1  
+  bisect  3.065 = 0.312g  ok=0  pole fell |q| >= 90 deg
+  bisect  3.371 = 0.344g  ok=0  track limit |x| > 0.43 m
+  bisect  3.524 = 0.359g  ok=0  pole fell |q| >= 90 deg
+  bisect  3.601 = 0.367g  ok=0  pole fell |q| >= 90 deg
+  -> FC-fis, q0=10 deg: smallest stabilizing actuator bound in (3.601, 3.677] m/s^2 = (0.367, 0.375] g
+
+=== FC-fis,  q0 = 20 deg ===
+      u_sat   ok   tEnter   tSettle  satFrac   max|x|        Su  note
+    0.49=0.05g    0      NaN       NaN    1.000    0.023       NaN  pole fell |q| >= 90 deg
+    0.98=0.10g    0      NaN       NaN    1.000    0.043       NaN  pole fell |q| >= 90 deg
+    1.47=0.15g    0      NaN       NaN    1.000    0.060       NaN  pole fell |q| >= 90 deg
+    2.45=0.25g    0      NaN       NaN    1.000    0.087       NaN  pole fell |q| >= 90 deg
+    4.90=0.50g    0      NaN       NaN    1.000    0.134       NaN  pole fell |q| >= 90 deg
+    7.35=0.75g    0      NaN       NaN    1.000    0.164       NaN  pole fell |q| >= 90 deg
+    9.81=1.00g    0      NaN       NaN    0.769    0.181       NaN  pole fell |q| >= 90 deg
+   14.71=1.50g    0      NaN       NaN    0.714    0.201       NaN  pole fell |q| >= 90 deg
+   19.61=2.00g    0      NaN       NaN    0.659    0.214       NaN  pole fell |q| >= 90 deg
+   29.42=3.00g    0      NaN       NaN    0.567    0.229       NaN  pole fell |q| >= 90 deg
+  -> FC-fis, q0=20 deg: FAILS even at the nominal 3 g
+
+=== FC-fis,  q0 = 30 deg ===
+      u_sat   ok   tEnter   tSettle  satFrac   max|x|        Su  note
+    0.49=0.05g    0      NaN       NaN    1.000    0.016       NaN  pole fell |q| >= 90 deg
+    0.98=0.10g    0      NaN       NaN    1.000    0.030       NaN  pole fell |q| >= 90 deg
+    1.47=0.15g    0      NaN       NaN    1.000    0.043       NaN  pole fell |q| >= 90 deg
+    2.45=0.25g    0      NaN       NaN    1.000    0.065       NaN  pole fell |q| >= 90 deg
+    4.90=0.50g    0      NaN       NaN    1.000    0.105       NaN  pole fell |q| >= 90 deg
+    7.35=0.75g    0      NaN       NaN    1.000    0.133       NaN  pole fell |q| >= 90 deg
+    9.81=1.00g    0      NaN       NaN    1.000    0.154       NaN  pole fell |q| >= 90 deg
+   14.71=1.50g    0      NaN       NaN    1.000    0.181       NaN  pole fell |q| >= 90 deg
+   19.61=2.00g    0      NaN       NaN    1.000    0.198       NaN  pole fell |q| >= 90 deg
+   29.42=3.00g    0      NaN       NaN    0.823    0.220       NaN  pole fell |q| >= 90 deg
+  -> FC-fis, q0=30 deg: FAILS even at the nominal 3 g
+
+=== FC-clip,  q0 = 10 deg ===
+      u_sat   ok   tEnter   tSettle  satFrac   max|x|        Su  note
+    0.49=0.05g    0      NaN       NaN    1.000    0.053       NaN  pole fell |q| >= 90 deg
+    0.98=0.10g    0      NaN       NaN    1.000    0.139       NaN  pole fell |q| >= 90 deg
+    1.47=0.15g    0      NaN       NaN    1.000    0.337       NaN  pole fell |q| >= 90 deg
+    2.45=0.25g    0      NaN       NaN    0.942    0.220       NaN  pole fell |q| >= 90 deg
+    4.90=0.50g    1    3.217     4.100    0.019    0.100     2.081  
+    7.35=0.75g    1    3.224     4.064    0.004    0.085     1.798  
+    9.81=1.00g    1    3.208     4.037    0.000    0.083     1.772  
+   14.71=1.50g    1    3.208     4.037    0.000    0.083     1.772  
+   19.61=2.00g    1    3.208     4.037    0.000    0.083     1.772  
+   29.42=3.00g    1    3.208     4.037    0.000    0.083     1.772  
+  bisect  3.677 = 0.375g  ok=1  
+  bisect  3.065 = 0.312g  ok=0  pole fell |q| >= 90 deg
+  bisect  3.371 = 0.344g  ok=0  track limit |x| > 0.43 m
+  bisect  3.524 = 0.359g  ok=0  pole fell |q| >= 90 deg
+  bisect  3.601 = 0.367g  ok=0  pole fell |q| >= 90 deg
+  -> FC-clip, q0=10 deg: smallest stabilizing actuator bound in (3.601, 3.677] m/s^2 = (0.367, 0.375] g
+
+=== FC-clip,  q0 = 20 deg ===
+      u_sat   ok   tEnter   tSettle  satFrac   max|x|        Su  note
+    0.49=0.05g    0      NaN       NaN    1.000    0.028       NaN  pole fell |q| >= 90 deg
+    0.98=0.10g    0      NaN       NaN    1.000    0.064       NaN  pole fell |q| >= 90 deg
+    1.47=0.15g    0      NaN       NaN    1.000    0.109       NaN  pole fell |q| >= 90 deg
+    2.45=0.25g    0      NaN       NaN    1.000    0.262       NaN  pole fell |q| >= 90 deg
+    4.90=0.50g    0      NaN       NaN    0.955    0.430       NaN  track limit |x| > 0.43 m
+    7.35=0.75g    0      NaN       NaN    0.891    0.433       NaN  track limit |x| > 0.43 m
+    9.81=1.00g    1    4.181     5.074    0.019    0.217     4.769  
+   14.71=1.50g    1    4.204     5.049    0.000    0.194     4.116  
+   19.61=2.00g    1    4.204     5.049    0.000    0.194     4.116  
+   29.42=3.00g    1    4.204     5.049    0.000    0.194     4.116  
+  bisect  8.581 = 0.875g  ok=1  
+  bisect  7.968 = 0.812g  ok=1  
+  bisect  7.661 = 0.781g  ok=0  track limit |x| > 0.43 m
+  bisect  7.815 = 0.797g  ok=1  
+  bisect  7.738 = 0.789g  ok=0  track limit |x| > 0.43 m
+  -> FC-clip, q0=20 deg: smallest stabilizing actuator bound in (7.738, 7.815] m/s^2 = (0.789, 0.797] g
+
+=== FC-clip,  q0 = 30 deg ===
+      u_sat   ok   tEnter   tSettle  satFrac   max|x|        Su  note
+    0.49=0.05g    0      NaN       NaN    1.000    0.018       NaN  pole fell |q| >= 90 deg
+    0.98=0.10g    0      NaN       NaN    1.000    0.040       NaN  pole fell |q| >= 90 deg
+    1.47=0.15g    0      NaN       NaN    1.000    0.064       NaN  pole fell |q| >= 90 deg
+    2.45=0.25g    0      NaN       NaN    1.000    0.128       NaN  pole fell |q| >= 90 deg
+    4.90=0.50g    0      NaN       NaN    1.000    0.430       NaN  track limit |x| > 0.43 m
+    7.35=0.75g    0      NaN       NaN    0.910    0.432       NaN  track limit |x| > 0.43 m
+    9.81=1.00g    0      NaN       NaN    0.792    0.430       NaN  track limit |x| > 0.43 m
+   14.71=1.50g    1    6.673     7.494    0.023    0.361    10.252  
+   19.61=2.00g    1    5.300     6.175    0.000    0.334     8.232  
+   29.42=3.00g    1    5.300     6.175    0.000    0.334     8.232  
+  bisect 12.258 = 1.250g  ok=0  track limit |x| > 0.43 m
+  bisect 13.484 = 1.375g  ok=0  track limit |x| > 0.43 m
+  bisect 14.097 = 1.438g  ok=1  
+  bisect 13.791 = 1.406g  ok=1  
+  bisect 13.637 = 1.391g  ok=1  
+  bisect 13.561 = 1.383g  ok=0  track limit |x| > 0.43 m
+  -> FC-clip, q0=30 deg: smallest stabilizing actuator bound in (13.561, 13.637] m/s^2 = (1.383, 1.391] g
+
+Saved logs/exp_e4_saturation.mat

@@ -1,0 +1,38 @@
+Script-level model (Eq. 12 + rshac_law_vec, ZOH 1 ms, RK4) vs published Simulink RS-HAC traces  15-Sep-2026 16:10:31
+
+q0 = 10 deg: max|dx| = 0.0093 m, max|dxd| = 0.0124 m/s, max|dq| = 0.152 deg, max|dqd| = 0.90 deg/s, max|du| = 0.498 m/s^2
+   u from the Simulink state (rshac_law_vec applied to the logged X): max|u_law(X_sim) - u_sim| = 5.329e-15
+   t=0.05  script [0.006702 0.2275 0.1519 -0.7152]         simulink [0.006714 0.228 0.152 -0.7122]
+   t=0.20  script [0.06447 0.5147 -0.01309 -1.543]         simulink [0.06491 0.5206 -0.01286 -1.547]
+   t=0.50  script [0.09807 -0.0684 -0.03677 0.3177]        simulink [0.1002 -0.07088 -0.03887 0.3257]
+   t=1.00  script [0.07145 -0.05617 -0.001759 0.017]       simulink [0.06901 -0.06834 -3.166e-06 0.02115]
+   t=1.50  script [0.04475 -0.0459 0.003266 0.0007036]     simulink [0.03663 -0.05456 0.005734 0.0005782]
+   t=2.00  script [0.02585 -0.03039 0.002772 -0.001423]    simulink [0.0176 -0.02251 0.00338 -0.007293]
+   t=2.50  script [0.01376 -0.01862 0.002013 -0.001512]    simulink [0.01106 -0.006617 0.0005874 -0.003512]
+   t=3.00  script [0.006606 -0.01056 0.001321 -0.001224]   simulink [0.008661 -0.004547 -0.0001984 0.0001207]
+   first entry into Eq. (26): script 2.432 s, Simulink 2.052 s
+
+q0 = 20 deg: max|dx| = 0.0142 m, max|dxd| = 0.0141 m/s, max|dq| = 0.190 deg, max|dqd| = 2.12 deg/s, max|du| = 5.052 m/s^2
+   u from the Simulink state (rshac_law_vec applied to the logged X): max|u_law(X_sim) - u_sim| = 1.066e-14
+   t=0.05  script [0.01551 0.5865 0.2964 -1.973]           simulink [0.01552 0.5867 0.2965 -1.969]
+   t=0.20  script [0.1516 0.7958 -0.1433 -2.334]           simulink [0.1517 0.8036 -0.1416 -2.343]
+   t=0.50  script [0.1582 -0.2391 -0.09333 0.4203]         simulink [0.1608 -0.2379 -0.09504 0.4193]
+   t=1.00  script [0.03744 -0.1374 0.02462 -0.03019]       simulink [0.03607 -0.14 0.02649 -0.03414]
+   t=1.50  script [-0.007257 -0.05143 0.01243 -0.01826]    simulink [-0.005907 -0.04119 0.01136 -0.02225]
+   t=2.00  script [-0.02141 -0.01062 0.005571 -0.009871]   simulink [-0.01423 0.001344 0.003188 -0.01136]
+   t=2.50  script [-0.02187 0.005956 0.001996 -0.004886]   simulink [-0.009489 0.01389 -0.0006564 -0.004426]
+   t=3.00  script [-0.01742 0.01053 0.0003192 -0.002109]   simulink [-0.003221 0.009174 -0.001492 0.0008299]
+   first entry into Eq. (26): script 2.742 s, Simulink 2.169 s
+
+q0 = 30 deg: max|dx| = 0.0099 m, max|dxd| = 0.0162 m/s, max|dq| = 0.242 deg, max|dqd| = 3.52 deg/s, max|du| = 3.258 m/s^2
+   u from the Simulink state (rshac_law_vec applied to the logged X): max|u_law(X_sim) - u_sim| = 1.776e-14
+   t=0.05  script [0.02431 0.9369 0.4476 -2.938]           simulink [0.02432 0.9371 0.4477 -2.933]
+   t=0.20  script [0.249 1.308 -0.2571 -3.789]             simulink [0.2493 1.313 -0.2562 -3.787]
+   t=0.50  script [0.1979 -0.4604 0.04974 1.266]           simulink [0.2009 -0.4619 0.04553 1.27]
+   t=1.00  script [0.1395 -0.1712 -0.006163 0.08403]       simulink [0.1411 -0.1736 -0.007029 0.0838]
+   t=1.50  script [0.06313 -0.121 0.01335 0.005598]        simulink [0.06007 -0.133 0.01527 0.009673]
+   t=2.00  script [0.01994 -0.05713 0.009577 -0.01179]     simulink [0.0146 -0.05118 0.01049 -0.01927]
+   t=2.50  script [0.0007436 -0.02327 0.005004 -0.006956]  simulink [0.00079 -0.009871 0.003352 -0.01007]
+   t=3.00  script [-0.00616 -0.006458 0.00235 -0.003886]   simulink [0.0002715 0.00435 -9.578e-05 -0.004028]
+   first entry into Eq. (26): script 2.573 s, Simulink 2.598 s
+

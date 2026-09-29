@@ -1,0 +1,35 @@
+function k_lqr = discrete_lqr(m,M,L,I,g,kd, kt, Fc)
+%DISCRETE_LQR  LQR reference gain of Eqs. (24)-(25) for the Simulink model.
+%   Despite its name, the gain is the CONTINUOUS-TIME LQR on the linearised model of
+%   Eq. (13), K = lqr(A, B, Q, R) with Q = diag(4, 0.1, 11, 0.2) and R = 0.02, and the
+%   Simulink model applies u = -K*X. The discretised model below is not used for the
+%   gain. analysis/lqr_gain.m stores the same gain for the scripts without Simulink.
+
+A = zeros(4, 4);
+B = zeros(4, 1);
+C = eye(4, 4);
+D = 0;
+
+A(1, 2) = 1;
+A(3, 4) = 1;
+A(4, 3) = m*g*L/(m*L^2 + I);
+A(4, 4) = -(kd)/(m*L^2 + I);
+
+B(2,:) = 1;
+B(4,:) = -m*L/(m*L^2 + I);
+myCartPend = ss(A,B,C,D);
+
+my_discrete_cartpend = c2d(myCartPend,0.001);  % discretize system
+
+A_discrete = my_discrete_cartpend.A;
+B_discrete = my_discrete_cartpend.B;
+C_discrete = my_discrete_cartpend.C;
+D_discrete = my_discrete_cartpend.D;
+
+Q = diag([4 0.1 11 0.2 ]); % [x xd q qd]
+R = 0.02;
+
+[k_lqr, ~, poles] = lqr(A,B,Q,R);
+disp(k_lqr);
+disp(poles);
+end

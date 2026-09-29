@@ -1,0 +1,42 @@
+rshac_lmi_certificate   2026-09-29 14:12:39   MATLAB 9.13.0.2049777 (R2022b)
+
+envelope: |x| <= 0.43 m, |xd| <= 2.0 m/s, |q| <= 15 deg, |qd| <= 200 deg/s;  oor = extrap;  lam0 = 0.01 1/s
+
+=== plant model: linearised ===
+  full envelope (rho = 1): 48 vertices, 6 not Hurwitz, best decay mu* = 5.339 -> certified: 0
+  reference box (rho = 0.3767): 48 vertices, mu* = -0.009124 -> certified: 0
+  CERTIFIED BOX  rho* = 0.3757:  |x| <= 0.1616 m, |xd| <= 0.7515 m/s, |q| <= 5.636 deg, |qd| <= 75.15 deg/s
+    48 vertices; sectors k_min = [23.47 28.21 186.9 14.88], k_max = [43.14 37.66 247.4 27.11]
+    best decay on this box: mu* = -0.02018 (lam* = 0.01009 1/s);  |u| <= 26.03 m/s^2 on the box (u_max = 29.42)
+    invariant ellipsoid {X'inv(Q)X <= 1}: gamma* = 0.0405; extents |x| 0.1616 m, |xd| 0.3277 m/s, |q| 4.476 deg, |qd| 53.40 deg/s
+    independent check: max_v lambda_max(M_v Q + Q M_v' + 2 lam0 Q)/lambda_max(Q) = -8.354e-10 < 0
+    Q =
+    0.0261   -0.0189   -0.0033    0.0205
+   -0.0189    0.1074   -0.0054   -0.2150
+   -0.0033   -0.0054    0.0061   -0.0113
+    0.0205   -0.2150   -0.0113    0.8688
+
+
+=== plant model: nonlinear ===
+  full envelope (rho = 1): 192 vertices, 26 not Hurwitz, best decay mu* = 5.793 -> certified: 0
+  reference box (rho = 0.3767): 192 vertices, mu* = 0.004395 -> certified: 0
+  CERTIFIED BOX  rho* = 0.3745:  |x| <= 0.1610 m, |xd| <= 0.7490 m/s, |q| <= 5.618 deg, |qd| <= 74.90 deg/s
+    192 vertices; sectors k_min = [23.47 28.27 187.2 14.92], k_max = [43.08 37.66 247.4 27.11]
+    best decay on this box: mu* = -0.02056 (lam* = 0.01028 1/s);  |u| <= 25.95 m/s^2 on the box (u_max = 29.42)
+    invariant ellipsoid {X'inv(Q)X <= 1}: gamma* = 0.0404; extents |x| 0.1610 m, |xd| 0.3272 m/s, |q| 4.473 deg, |qd| 53.37 deg/s
+    independent check: max_v lambda_max(M_v Q + Q M_v' + 2 lam0 Q)/lambda_max(Q) = -7.578e-10 < 0
+    Q =
+    0.0259   -0.0188   -0.0033    0.0207
+   -0.0188    0.1070   -0.0052   -0.2147
+   -0.0033   -0.0052    0.0061   -0.0118
+    0.0207   -0.2147   -0.0118    0.8677
+
+
+=== sensitivity of rho* to lam0 (nonlinear plant) ===
+  lam0 = 0.001  rho* = 0.3760  (|q| <= 5.64 deg)
+  lam0 = 0.01   rho* = 0.3740  (|q| <= 5.61 deg)
+  lam0 = 0.1    rho* = 0.3574  (|q| <= 5.36 deg)
+  lam0 = 0.3    rho* = 0.3330  (|q| <= 5.00 deg)
+  lam0 = 0.5    rho* = 0.3232  (|q| <= 4.85 deg)
+
+Saved certificate_lmi.mat

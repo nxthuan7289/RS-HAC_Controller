@@ -1,0 +1,29 @@
+small_signal_margins   2026-09-29 14:05:53   MATLAB 9.13.0.2049777 (R2022b)
+
+=== FC pre-check: evalfis(fuzzy_ctrl_v2.fis), input x swept, other inputs neutral ===
+  max|out_x - s| = 0.000e+00    max|out_x - 4s| = 2.250e+00    other outputs: max|out - 0.5| = 0.000e+00
+  u_x(FC) at s = 0.25 / 0.50 / 0.75 : -29.420  0.000  29.420 m/s^2
+  -> FIS output equals the semantic input in-range; FC line u = u_max(4s - 2)
+
+=== small-signal gains (u = +K*X) ===
+  RS-HAC            K = [5.8669 9.4144 61.855 6.7784]
+  LQR (Eq. 25)      K = [14.142 11.829 56.588 7.9833]
+  FC (Fig. 7 line)  K = [34.209 7.355 58.84 3.3097]
+  ratios to LQR:  RS-HAC [0.415 0.796 1.09 0.849]   FC [2.42 0.622 1.04 0.415]
+
+=== closed-loop poles (linearised plant, continuous time) ===
+  RS-HAC            poles [-1.045+0.5532i -1.045-0.5532i -11.22+8.935i -11.22-8.935i]
+                    zeta  [0.884 0.884 0.782 0.782]   (dominant pair: Re = -1.045, zeta = 0.884)
+  LQR (Eq. 25)      poles [-1.743+1.545i -1.743-1.545i -7.426 -17.22]
+                    zeta  [0.748 0.748 1 1]   (dominant pair: Re = -1.743, zeta = 0.748)
+  FC (Fig. 7 line)  poles [-0.7659+2.871i -0.7659-2.871i -3.854+13.23i -3.854-13.23i]
+                    zeta  [0.258 0.258 0.28 0.28]   (dominant pair: Re = -0.766, zeta = 0.258)
+
+=== loop margins at the plant input, L(s) = -K(sI-A)^-1 B ===
+  controller         GM low [dB] GM high [dB]       PM [deg]      DM [ms]  DM_zoh [ms]     disk GM [dB]
+  RS-HAC                  -12.56          Inf          62.80        44.36        43.86     [-9.53 9.53]
+  LQR (Eq. 25)            -10.56          Inf          70.31        45.09        44.59   [-10.07 10.07]
+  FC (Fig. 7 line)         -7.84          Inf          24.68        28.50        28.00     [-3.59 3.59]
+  (GM low: gain reduction the loop tolerates; DM_zoh: sampled at T_s = 1 ms with zero-order hold)
+
+Saved logs/small_signal_margins.mat

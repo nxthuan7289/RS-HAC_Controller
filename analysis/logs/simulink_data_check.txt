@@ -1,0 +1,16 @@
+Simulink data check (archived MAT traces)  15-Sep-2026 16:06:26
+data_RSHAC.Data columns as used by get_goal_time.m: col 1 = x, last col = u
+
+RSHAC_init_10_deg_experiment_1.mat       T_end=  2.052 n=  2053 dt=0.001 X0=[0 0 0.1745 0] max x=0.106 max|u|=7.92 sum|u|*1ms=1.194 size=[2053 5]
+RSHAC_init_10_deg_experiment_1_full.mat  T_end= 10.000 n= 10001 dt=0.001 X0=[0 0 0.1745 0] max x=0.106 max|u|=1.00 sum|u|*1ms=7.949 size=[10001 6]
+RSHAC_init_20_deg_experiment_1.mat       T_end=  2.169 n=  2170 dt=0.001 X0=[0 0 0.3491 0] max x=0.187 max|u|=15.18 sum|u|*1ms=2.835 size=[2170 5]
+RSHAC_init_20_deg_experiment_1_full.mat  T_end= 10.000 n= 10001 dt=0.001 X0=[0 0 0.3491 0] max x=0.187 max|u|=1.00 sum|u|*1ms=7.832 size=[10001 6]
+RSHAC_init_30_deg_experiment_1.mat       T_end=  2.598 n=  2599 dt=0.001 X0=[0 0 0.5236 0] max x=0.306 max|u|=21.57 sum|u|*1ms=5.121 size=[2599 5]
+RSHAC_init_30_deg_experiment_1_full.mat  T_end= 10.000 n= 10001 dt=0.001 X0=[0 0 0.5236 0] max x=0.306 max|u|=1.00 sum|u|*1ms=7.403 size=[10001 6]
+
+FC_init_10_deg_experiment_1.mat          T_end=  5.238 max x=0.084 max|u|=9.81 sum|u|*1ms=1.921 size=[5239 5]
+FC_init_20_deg_experiment_1.mat          T_end=  6.205 max x=0.195 max|u|=14.71 sum|u|*1ms=4.301 size=[6206 5]
+FC_init_30_deg_experiment_1.mat          T_end=  7.289 max x=0.335 max|u|=19.61 sum|u|*1ms=8.420 size=[7290 5]
+LQR_init_10_deg_experiment_1.mat         T_end=  2.482 max x=0.106 max|u|=9.88 sum|u|*1ms=0.996 size=[2483 5]
+LQR_init_20_deg_experiment_1.mat         T_end=  2.704 max x=0.219 max|u|=19.75 sum|u|*1ms=2.049 size=[2705 5]
+LQR_init_30_deg_experiment_1.mat         T_end=  2.865 max x=0.356 max|u|=29.63 sum|u|*1ms=3.324 size=[2866 5]

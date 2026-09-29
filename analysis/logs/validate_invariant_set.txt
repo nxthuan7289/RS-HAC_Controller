@@ -1,0 +1,19 @@
+validate_invariant_set   2026-09-29 14:13:31   MATLAB 9.13.0.2049777 (R2022b)
+
+rshac_law_vec vs rshac_law on 500 states (incl. |q| = l1, l2): max |du| = 3.55e-15
+
+=== certificate for the linearised plant model: rho* = 0.3757, lam0 = 0.01 ===
+  continuous control, 1000 trajectories, T = 5 s:
+    max_t V(t) = 1.000000 (<= 1 required),  max_t V(t)exp(2 lam0 t) = 1.000000 (<= 1 required)
+    trajectories leaving the certified box: 0;  peak unsaturated |u| = 5.04 m/s^2 (u_max = 29.42)
+    V(T): max 7.382e-05, median 1.700e-05  (bound exp(-2 lam0 T) = 9.048e-01)
+  sampled control (ZOH 1 ms): max_t V(t) = 1.000000;  V(T): max 7.374e-05;  converged (V(T) < 1e-3): 1000 of 1000
+
+=== certificate for the nonlinear plant model: rho* = 0.3745, lam0 = 0.01 ===
+  continuous control, 1000 trajectories, T = 5 s:
+    max_t V(t) = 1.000000 (<= 1 required),  max_t V(t)exp(2 lam0 t) = 1.000000 (<= 1 required)
+    trajectories leaving the certified box: 0;  peak unsaturated |u| = 4.98 m/s^2 (u_max = 29.42)
+    V(T): max 7.562e-05, median 1.593e-05  (bound exp(-2 lam0 T) = 9.048e-01)
+  sampled control (ZOH 1 ms): max_t V(t) = 1.000000;  V(T): max 7.568e-05;  converged (V(T) < 1e-3): 1000 of 1000
+
+Saved certificate_projections.mat and logs/certified_ellipse_q_qd_deg.csv (q [deg], qd [deg/s])

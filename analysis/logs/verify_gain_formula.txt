@@ -1,0 +1,40 @@
+verify_gain_formula   2026-09-29 14:05:58   MATLAB 9.13.0.2049777 (R2022b)
+
+=== SQSM tables (Algorithm 1) -- compare with Fig. 5 ===
+  x   n=7  bp = [0.25 0.375 0.4375 0.5 0.5625 0.625 0.75]
+           tb = [0.325 0.4388 0.4786 0.5 0.5214 0.5613 0.675]
+  xd  n=5  bp = [0.25 0.375 0.5 0.625 0.75]
+           tb = [0.1 0.18 0.5 0.82 0.9]
+  q   n=5  bp = [0.25 0.375 0.5 0.625 0.75]
+           tb = [0.1375 0.2372 0.5 0.7628 0.8625]
+  qd  n=7  bp = [0.25 0.375 0.4375 0.5 0.5625 0.625 0.75]
+           tb = [0.1 0.18 0.244 0.5 0.756 0.82 0.9]
+
+=== u_i(0) must be exactly 0 (symmetry of Proposition 1) ===
+  u_i(0) = [0 0 0 0]      u(0) = 0.000e+00
+
+=== small-signal gain: closed form vs numerical derivative ===
+  ch           g0   K_closedform      K_numeric      rel.err
+  x        0.3430         5.8669         5.8669     6.69e-11
+  xd       2.5600         9.4144         9.4144     3.96e-11
+  q        2.1025        61.8554        61.8554     4.08e-13
+  qd       4.0960         6.7784         6.7784     1.81e-10
+
+=== Proposition 3: closed-loop spectrum ===
+  lqr(A, B, Q, R) of Eq. (24) reproduces lqr_gain.m (max rel. dev. 2.6e-10)
+  K_RSHAC (u = +K X) = [5.8669 9.4144 61.855 6.7784]
+  K_LQR   (u = +K X) = [14.142 11.829 56.588 7.9833]
+  per-channel ratio  = [0.415 0.796 1.09 0.849]
+  open loop : [-7.025 0 0 6.979]
+  RS-HAC    : [-1.045-0.5532i -1.045+0.5532i -11.22-8.935i -11.22+8.935i]   Hurwitz = 1
+  LQR       : [-1.743-1.545i -1.743+1.545i -7.426 -17.22]   Hurwitz = 1
+
+=== inverse design: alpha_u that realises a target gain K* ===
+  alpha_ui = alpha_i * ( K*_i / (w_i (umax-umin) ds_i) )^(2/(n_i-1))
+  ch             K*     alpha_u*  in (0,1)?
+  x         14.1421       0.4693       true
+  xd        11.8290       0.8967       true
+  q         56.5879       0.6934       true
+  qd         7.9833       0.8448       true
+
+All assertions passed.

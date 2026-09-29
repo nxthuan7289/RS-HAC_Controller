@@ -1,0 +1,44 @@
+How was Delta_t of Table 4 measured? Published RS-HAC 10 s traces (_full)  15-Sep-2026 16:08:44
+
+q0 = 10 deg (published Delta_t = 2.052 s), 10001 samples
+   col 1: min -1.163e-05  max 0.1056  value at published Delta_t 0.01649
+   col 2: min -0.07095  max 0.523  value at published Delta_t -0.01998
+   col 3: min -0.09863  max 0.1745  value at published Delta_t 0.003006
+   col 4: min -1.558  max 0.387  value at published Delta_t -0.007092
+   col 5: min -7.668  max 7.917  value at published Delta_t 0.04652
+   col 6: min 0  max 1  value at published Delta_t 1
+   col 6 first changes at t = 2.052 s (from 0 to 1)
+   Eq. (26) as printed  [.02 m, .02 m/s, .5 deg, .5 deg/s]    first entry   2.052 s   stays in band from   2.052 s
+   qd threshold in rad/s [.02 m, .02 m/s, .5 deg, .5 rad/s]   first entry   2.052 s   stays in band from   2.052 s
+   q, qd thresholds in rad [.02, .02, .5 rad, .5 rad/s]       first entry   0.000 s   stays in band from   2.052 s
+   qd threshold 5 deg/s  [.02 m, .02 m/s, .5 deg, 5 deg/s]    first entry   2.052 s   stays in band from   2.052 s
+   x, xd only            [.02 m, .02 m/s]                     first entry   0.000 s   stays in band from   2.052 s
+
+q0 = 20 deg (published Delta_t = 2.169 s), 10001 samples
+   col 1: min -0.01424  max 0.1865  value at published Delta_t -0.01338
+   col 2: min -0.3797  max 1.033  value at published Delta_t 0.008147
+   col 3: min -0.2075  max 0.3491  value at published Delta_t 0.001496
+   col 4: min -3.326  max 0.7542  value at published Delta_t -0.008726
+   col 5: min -10.49  max 15.18  value at published Delta_t 0.03158
+   col 6: min 0  max 1  value at published Delta_t 1
+   col 6 first changes at t = 2.169 s (from 0 to 1)
+   Eq. (26) as printed  [.02 m, .02 m/s, .5 deg, .5 deg/s]    first entry   2.169 s   stays in band from   2.169 s
+   qd threshold in rad/s [.02 m, .02 m/s, .5 deg, .5 rad/s]   first entry   1.694 s   stays in band from   1.694 s
+   q, qd thresholds in rad [.02, .02, .5 rad, .5 rad/s]       first entry   0.000 s   stays in band from   1.694 s
+   qd threshold 5 deg/s  [.02 m, .02 m/s, .5 deg, 5 deg/s]    first entry   1.694 s   stays in band from   1.694 s
+   x, xd only            [.02 m, .02 m/s]                     first entry   0.000 s   stays in band from   1.694 s
+
+q0 = 30 deg (published Delta_t = 2.598 s), 10001 samples
+   col 1: min -0.0004037  max 0.3064  value at published Delta_t 5.091e-05
+   col 2: min -0.6581  max 1.722  value at published Delta_t -0.005373
+   col 3: min -0.3818  max 0.5236  value at published Delta_t 0.002432
+   col 4: min -5.472  max 2.541  value at published Delta_t -0.008726
+   col 5: min -16.32  max 21.57  value at published Delta_t 0.04102
+   col 6: min 0  max 1  value at published Delta_t 1
+   col 6 first changes at t = 2.598 s (from 0 to 1)
+   Eq. (26) as printed  [.02 m, .02 m/s, .5 deg, .5 deg/s]    first entry   2.598 s   stays in band from   2.598 s
+   qd threshold in rad/s [.02 m, .02 m/s, .5 deg, .5 rad/s]   first entry   2.332 s   stays in band from   2.332 s
+   q, qd thresholds in rad [.02, .02, .5 rad, .5 rad/s]       first entry   2.332 s   stays in band from   2.332 s
+   qd threshold 5 deg/s  [.02 m, .02 m/s, .5 deg, 5 deg/s]    first entry   2.332 s   stays in band from   2.332 s
+   x, xd only            [.02 m, .02 m/s]                     first entry   0.000 s   stays in band from   2.332 s
+
