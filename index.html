@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>
-    Design and Implementation of Hedge Algebra Controller using Recursive Semantic Values for Cart-pole System
+    A Recursive Semantic Hedge Algebra Controller for Cart–Pole Stabilization with Real-Time Experimental Validation
   </title>
 
   <style>
@@ -29,6 +29,24 @@
       margin-top: 40px;
       border-bottom: 1px solid #ddd;
       padding-bottom: 8px;
+    }
+
+    .authors {
+      text-align: center;
+      font-size: 1.1em;
+      margin: 10px 0 5px;
+    }
+
+    .affiliations {
+      text-align: center;
+      font-size: 0.9em;
+      font-style: italic;
+      color: #555;
+      line-height: 1.5;
+    }
+
+    .affiliations p {
+      margin: 4px 0;
     }
 
     .subtitle {
@@ -75,6 +93,13 @@
       border: none;
     }
 
+    .video-fallback {
+      text-align: center;
+      font-size: 0.9em;
+      color: #555;
+      margin-top: -10px;
+    }
+
     footer {
       text-align: center;
       margin-top: 50px;
@@ -89,8 +114,32 @@
 <body>
 
   <h1>
-    Design and Implementation of Hedge Algebra Controller using Recursive Semantic Values for Cart-pole System
+    A Recursive Semantic Hedge Algebra Controller for Cart–Pole Stabilization with Real-Time Experimental Validation
   </h1>
+
+  <p class="authors">
+    Nhat-Minh Dzoan<sup>a,b</sup>,
+    Thi-Thoa Mac<sup>a,*</sup>,
+    Hoang-Hiep Ly<sup>a</sup>,
+    Xuan-Thuan Nguyen<sup>a</sup>
+  </p>
+
+  <div class="affiliations">
+    <p>
+      <sup>a</sup>Mechatronics Department, School of Mechanical Engineering,
+      Hanoi University of Science and Technology, No.1 Dai Co Viet, Hanoi,
+      100000, Vietnam
+    </p>
+    <p>
+      <sup>b</sup>School of Mechanical and Manufacturing Engineering,
+      UNSW Sydney, Ainsworth Building J17, UNSW Sydney NSW 2052, Sydney,
+      Australia
+    </p>
+    <p>
+      <sup>*</sup>Corresponding author: Thi-Thoa Mac,
+      <a href="mailto:thoa.macthi@hust.edu.vn">thoa.macthi@hust.edu.vn</a>
+    </p>
+  </div>
 
   <p class="subtitle">
     <em>
@@ -107,11 +156,8 @@
       GitHub Repository
     </a>
 
-    <a class="button"
-       href="https://github.com/nxthuan7289/RS-HAC_Controller"
-       target="_blank"
-       rel="noopener noreferrer">
-      Source Code
+    <a class="button" href="#video">
+      Experimental Video
     </a>
 
   </div>
@@ -151,7 +197,7 @@
     steps, and its control routine took 1.89 µs on average per 1 ms cycle.
   </p>
 
-  <h2>Experimental Video</h2>
+  <h2 id="video">Experimental Video</h2>
 
   <p>
     The following video provides supplementary demonstrations of the
@@ -162,10 +208,17 @@
   <div class="video-container">
     <iframe
       src="https://drive.google.com/file/d/1WgGhv8Dc5jQvirhATlJ02ohhihOdQ6ol/preview"
-      allow="autoplay"
+      title="RS-HAC experimental video: physical cart-pole experiments"
       allowfullscreen>
     </iframe>
   </div>
+
+  <p class="video-fallback">
+    If the video does not load,
+    <a href="https://drive.google.com/file/d/1WgGhv8Dc5jQvirhATlJ02ohhihOdQ6ol/view"
+       target="_blank"
+       rel="noopener noreferrer">open it in Google Drive</a>.
+  </p>
 
   <p>
     The video is provided as supplementary material only; all quantitative
@@ -177,43 +230,10 @@
   <p>
     The MATLAB/Simulink code, Teensy firmware, experimental scripts,
     analysis files, and data associated with the RS-HAC controller
-    are publicly available in the GitHub repository.
-  </p>
-
-  <div class="links">
-
-    <a class="button"
-       href="https://github.com/nxthuan7289/RS-HAC_Controller"
-       target="_blank"
-       rel="noopener noreferrer">
-      View Source Code
-    </a>
-
-  </div>
-
-  <h2>Supplementary Material</h2>
-
-  <p>
-    Supplementary material for this work includes the experimental video
-    and the source code associated with the RS-HAC implementation.
-  </p>
-
-  <p>
-    Project webpage:
-    <a href="https://nxthuan7289.github.io/RS-HAC_Controller/"
-       target="_blank"
-       rel="noopener noreferrer">
-      https://nxthuan7289.github.io/RS-HAC_Controller/
-    </a>
-  </p>
-
-  <p>
-    GitHub repository:
+    are publicly available at
     <a href="https://github.com/nxthuan7289/RS-HAC_Controller"
        target="_blank"
-       rel="noopener noreferrer">
-      https://github.com/nxthuan7289/RS-HAC_Controller
-    </a>
+       rel="noopener noreferrer">https://github.com/nxthuan7289/RS-HAC_Controller</a>.
   </p>
 
   <footer>
